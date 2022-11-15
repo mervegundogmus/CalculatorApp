@@ -73,17 +73,6 @@ public class Calculator extends JFrame {
 			break;	
 		}
 	}
-	
-	/*public void button17ActionPerformed(java.awt.event.ActionEvent evt) {
-		int i, number;
-		int fac = 1;
-		number = Integer.parseInt(input.getText());
-		for(i=number; i>=1; i--) {
-			fac *= i;
-		}
-		input.setText(Integer.toString(fac));
-	}
-	*/
 
 	/**
 	 * Create the frame.
