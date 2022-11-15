@@ -73,6 +73,7 @@ public class Calculator extends JFrame {
 			break;	
 		}
 	}
+	
 
 	/**
 	 * Create the frame.
@@ -139,15 +140,18 @@ public class Calculator extends JFrame {
 		button_1.setFont(new Font("Tahoma", Font.BOLD, 23));
 		control.add(button_1);
 		
-		JButton button_2 = new JButton("()");
-		button_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				addInput("()");
+		JButton btnX = new JButton("x²");
+		btnX.addActionListener(new ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				int number, square;
+				number = Integer.parseInt(input.getText());
+					square = number*number;
+				input.setText(Integer.toString(square));
 			}
 		});
-		button_2.setBackground(Color.WHITE);
-		button_2.setFont(new Font("Tahoma", Font.BOLD, 23));
-		control.add(button_2);
+		btnX.setBackground(Color.WHITE);
+		btnX.setFont(new Font("Tahoma", Font.BOLD, 23));
+		control.add(btnX);
 		button_3.setFont(new Font("Tahoma", Font.BOLD, 23));
 		control.add(button_3);
 		
@@ -299,7 +303,7 @@ public class Calculator extends JFrame {
 				int i, number;
 				int fac = 1;
 				number = Integer.parseInt(input.getText());
-				for(i=number; i>=1; i--) {
+				for(i = number; i >= 1; i--) {
 					fac *= i;
 				}
 				input.setText(Integer.toString(fac));
