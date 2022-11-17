@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
@@ -49,6 +50,10 @@ public class Calculator extends JFrame {
 		input.setText(input.getText() + str);
 	}
 	
+	/**
+	 * Calculate function.
+	 */
+	
 	public void calculate() {
 		switch(operation) {
 		case 1:
@@ -74,6 +79,42 @@ public class Calculator extends JFrame {
 		}
 	}
 	
+	/*
+	public void factorial() {
+		int i, number;
+		int fact = 1;
+		number = Integer.parseInt(input.getText());
+		for (i = number; i >= 1; i--) {
+			fact *= i;
+		}
+		input.setText(Integer.toString(fact));
+	}
+	*/
+	
+	/**
+	 * Factorial function with array.
+	 */
+	public void factorial(){
+		int i, number;
+		int fact = 1;
+		number = Integer.parseInt(input.getText());
+		int[] numberArray = new int[number];
+		for(i = 1; i <= number; i++) {
+			fact *= i;
+			numberArray[i-1] = i;		
+			}
+		input.setText(Integer.toString(fact));
+	}
+	
+	/**
+	 * Square function.
+	 */
+	public void square() {
+		int number, square;
+		number = Integer.parseInt(input.getText());
+			square = number*number;
+		input.setText(Integer.toString(square));
+	}
 
 	/**
 	 * Create the frame.
@@ -142,11 +183,8 @@ public class Calculator extends JFrame {
 		
 		JButton btnX = new JButton("x²");
 		btnX.addActionListener(new ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				int number, square;
-				number = Integer.parseInt(input.getText());
-					square = number*number;
-				input.setText(Integer.toString(square));
+			public void actionPerformed(ActionEvent e) {
+				square();
 			}
 		});
 		btnX.setBackground(Color.WHITE);
@@ -299,16 +337,9 @@ public class Calculator extends JFrame {
 		
 		JButton button17 = new JButton("!");
 		button17.addActionListener(new ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				int i, number;
-				int fac = 1;
-				number = Integer.parseInt(input.getText());
-				for(i = number; i >= 1; i--) {
-					fac *= i;
+			public void actionPerformed(ActionEvent e) {
+				factorial();
 				}
-				input.setText(Integer.toString(fac));
-			}
-			
 		});
 		button17.setFont(new Font("Tahoma", Font.BOLD, 23));
 		button17.setBackground(Color.WHITE);
